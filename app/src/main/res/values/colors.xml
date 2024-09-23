@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="text">#1A1B22</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="main_backgroud">#3272E7</color>
+
+    <color name="settings_backgroud">#fff</color>
+    <color name="setting_icon">#AEAFB4</color>
+    <color name="settings_text">#000</color>
+    <color name="shadow">#00FFFFFF</color>
+    <color name="thumb_track_tint">#E6E8EB</color>
+    <color name="thumb_tint">#AEAFB4</color>
+
+
 </resources>
