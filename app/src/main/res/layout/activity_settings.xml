@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/settings_backgroud"
     android:paddingHorizontal="16dp">
 
     <LinearLayout
@@ -15,9 +16,15 @@
         <Button
             android:layout_width="48dp"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/settings_backgroud"
+            android:contentDescription="@string/back"
+            android:outlineAmbientShadowColor="@color/shadow"
+            android:outlineSpotShadowColor="@color/shadow"
+            android:shadowColor="@color/shadow"
             android:padding="12dp"
             app:cornerRadius="0dp"
             app:icon="@drawable/arrow_back"
+            app:iconTint="@color/settings_text" />
         
         <TextView
             android:layout_width="wrap_content"
@@ -26,6 +33,7 @@
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:text="@string/settings"
+            android:textColor="@color/settings_text"
             android:textSize="22sp"
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
@@ -40,43 +48,63 @@
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:text="@string/dark_theme"
+            android:textColor="@color/settings_text"
             android:textSize="16sp"
+            android:thumbTint="@color/thumb_tint"
+            android:trackTint="@color/thumb_track_tint"
             tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="61dp"
+            android:backgroundTint="@color/settings_backgroud"
             android:drawableEnd="@drawable/share"
             android:drawableTint="@color/setting_icon"
             android:forceDarkAllowed="false"
             android:gravity="center_vertical"
+            android:outlineAmbientShadowColor="@color/shadow"
+            android:outlineSpotShadowColor="@color/shadow"
+            android:shadowColor="@color/shadow"
             android:paddingStart="0dp"
             android:text="@string/share_app"
             android:textAllCaps="false"
+            android:textColor="@color/settings_text"
             android:textSize="16sp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="61dp"
+            android:backgroundTint="@color/settings_backgroud"
             android:drawableEnd="@drawable/support"
             android:drawableTint="@color/setting_icon"
             android:forceDarkAllowed="false"
             android:gravity="center_vertical"
+            android:outlineAmbientShadowColor="@color/shadow"
+            android:outlineSpotShadowColor="@color/shadow"
+            android:shadowColor="@color/shadow"
             android:paddingStart="0dp"
             android:text="@string/support"
             android:textAllCaps="false"
+            android:textColor="@color/settings_text"
             android:textSize="16sp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="61dp"
+            android:backgroundTint="@color/settings_backgroud"
             android:drawableEnd="@drawable/user_agreement"
             android:drawableTint="@color/setting_icon"
             android:forceDarkAllowed="false"
             android:gravity="center_vertical"
+            android:outlineAmbientShadowColor="@color/shadow"
+            android:outlineSpotShadowColor="@color/shadow"
+            android:shadowColor="@color/shadow"
             android:paddingStart="0dp"
             android:text="@string/user_agreement"
             android:textAllCaps="false"
+            android:textColor="@color/settings_text"
             android:textSize="16sp" />
 
     </LinearLayout>
