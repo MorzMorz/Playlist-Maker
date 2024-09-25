@@ -24,7 +24,8 @@
             android:padding="12dp"
             app:cornerRadius="0dp"
             app:icon="@drawable/arrow_back"
-            app:iconTint="@color/settings_text" />
+            app:iconTint="@color/settings_text"
+            />
         
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +53,8 @@
             android:textSize="16sp"
             android:thumbTint="@color/thumb_tint"
             android:trackTint="@color/thumb_track_tint"
-            tools:ignore="UseSwitchCompatOrMaterialXml"/>
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            />
 
 
 
