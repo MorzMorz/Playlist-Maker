@@ -4,114 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/settings_backgroud"
-    android:paddingHorizontal="16dp">
+    android:orientation="vertical"
+>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="4dp">
+        android:layout_margin="@dimen/LayoutMargin">
 
-        <Button
-            android:id="@+id/button_back"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/settings_backgroud"
-            android:contentDescription="@string/back"
-            android:outlineAmbientShadowColor="@color/shadow"
-            android:outlineSpotShadowColor="@color/shadow"
-            android:shadowColor="@color/shadow"
-            android:padding="12dp"
-            app:cornerRadius="0dp"
-            app:icon="@drawable/arrow_back"
-            app:iconTint="@color/settings_text"
+        <ImageView
+            android:id="@+id/arrow_back"
+
+            android:layout_width="@dimen/ArrowBack"
+            android:layout_height="@dimen/ArrowBack"
+            android:layout_marginEnd="12dp"
+            android:scaleType="center"
             android:foreground="?attr/selectableItemBackground"
-            />
-        
+            android:visibility="visible"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/arrow_back" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingStart="12dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/LayoutMargin"
+            android:fontFamily="@font/ys_display_medium"
             android:gravity="center_vertical"
+            android:paddingStart="12dp"
             android:text="@string/settings"
             android:textColor="@color/settings_text"
-            android:textSize="22sp"
+            android:textSize="@dimen/textSize"
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp">
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/themeSwitcher"
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="@dimen/SettingsLayoutHeight"
+            android:fontFamily="@font/ys_display_regular"
             android:text="@string/dark_theme"
             android:textColor="@color/settings_text"
-            android:textSize="16sp"
+            android:textSize="@dimen/SettingsTextSize"
             android:thumbTint="@color/thumb_tint"
             android:trackTint="@color/thumb_track_tint"
-            tools:ignore="UseSwitchCompatOrMaterialXml"
-            />
-
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:backgroundTint="@color/settings_backgroud"
+            style="@style/ButtonSettingsStyle"
             android:drawableEnd="@drawable/share"
-            android:drawableTint="@color/setting_icon"
-            android:forceDarkAllowed="false"
-            android:gravity="center_vertical"
-            android:outlineAmbientShadowColor="@color/shadow"
-            android:outlineSpotShadowColor="@color/shadow"
-            android:shadowColor="@color/shadow"
-            android:paddingStart="0dp"
-            android:text="@string/share_app"
-            android:textAllCaps="false"
-            android:textColor="@color/settings_text"
-            android:textSize="16sp" />
+            android:text="@string/share_app" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:backgroundTint="@color/settings_backgroud"
+            style="@style/ButtonSettingsStyle"
             android:drawableEnd="@drawable/support"
-            android:drawableTint="@color/setting_icon"
-            android:forceDarkAllowed="false"
-            android:gravity="center_vertical"
-            android:outlineAmbientShadowColor="@color/shadow"
-            android:outlineSpotShadowColor="@color/shadow"
-            android:shadowColor="@color/shadow"
-            android:paddingStart="0dp"
-            android:text="@string/support"
-            android:textAllCaps="false"
-            android:textColor="@color/settings_text"
-            android:textSize="16sp" />
+            android:text="@string/support" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:backgroundTint="@color/settings_backgroud"
+            style="@style/ButtonSettingsStyle"
             android:drawableEnd="@drawable/user_agreement"
-            android:drawableTint="@color/setting_icon"
-            android:forceDarkAllowed="false"
-            android:gravity="center_vertical"
-            android:outlineAmbientShadowColor="@color/shadow"
-            android:outlineSpotShadowColor="@color/shadow"
-            android:shadowColor="@color/shadow"
-            android:paddingStart="0dp"
-            android:text="@string/user_agreement"
-            android:textAllCaps="false"
-            android:textColor="@color/settings_text"
-            android:textSize="16sp" />
+            android:text="@string/user_agreement" />
 
     </LinearLayout>
-   
-    </LinearLayout>
+
+</LinearLayout>

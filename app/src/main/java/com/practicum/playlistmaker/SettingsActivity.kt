@@ -3,6 +3,7 @@ package com.practicum.playlistmaker
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +17,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
 
-        val buttonBack = findViewById<Button>(R.id.button_back)
+        val buttonBack = findViewById<View>(R.id.arrow_back)
 
         buttonBack.setOnClickListener{
             finish()
