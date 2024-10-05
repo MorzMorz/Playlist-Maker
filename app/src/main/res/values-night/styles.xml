@@ -32,4 +32,7 @@
         <item name="android:textSize">@dimen/SettingsTextSize</item>
         <item name="android:fontFamily">@font/ys_display_regular</item>
     </style>
+    <style name="ArrowBack">
+        <item name="android:src">@drawable/arrow_back_dark</item>
+    </style>
 </resources>

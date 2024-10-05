@@ -23,7 +23,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:visibility="visible"
             android:backgroundTint="@color/white"
-            android:src="@drawable/arrow_back" />
+            style="@style/ArrowBack"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,23 +55,30 @@
             android:textSize="@dimen/SettingsTextSize"
             android:thumbTint="@color/thumb_tint"
             android:trackTint="@color/thumb_track_tint"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:foreground="?attr/selectableItemBackground"/>
 
 
         <Button
+            android:id="@+id/button_share"
             style="@style/ButtonSettingsStyle"
             android:drawableEnd="@drawable/share"
-            android:text="@string/share_app" />
+            android:text="@string/share_app"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <Button
+            android:id="@+id/button_support"
             style="@style/ButtonSettingsStyle"
             android:drawableEnd="@drawable/support"
-            android:text="@string/support" />
+            android:text="@string/support"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <Button
+            android:id="@+id/button_userAgreement"
             style="@style/ButtonSettingsStyle"
             android:drawableEnd="@drawable/user_agreement"
-            android:text="@string/user_agreement" />
+            android:text="@string/user_agreement"
+            android:foreground="?attr/selectableItemBackground"/>
 
     </LinearLayout>
 
