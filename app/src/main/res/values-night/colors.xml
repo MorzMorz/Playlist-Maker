@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="text">#000</color>
+    <color name="text">@color/black</color>
     <color name="white">#fff</color>
     <color name="black">#000</color>
     <color name="main_backgroud">#1A1B22</color>
-
-
-    <color name="settings_backgroud">#1A1B22</color>
-    <color name="setting_icon">#fff</color>
-    <color name="settings_text">#fff</color>
+    <color name="settings_backgroud">@color/main_backgroud</color>
+    <color name="setting_icon">@color/white</color>
+    <color name="settings_text">@color/white</color>
+    <color name="search_text">@color/white</color>
     <color name="thumb_track_tint">#9FBBF3</color>
     <color name="thumb_tint">#3772E7</color>
+    <color name="Edit_text_color_hint">@color/main_backgroud</color>
 </resources>

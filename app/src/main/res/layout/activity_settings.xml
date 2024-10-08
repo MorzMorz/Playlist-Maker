@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/settings_backgroud"
-    android:orientation="vertical"
->
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,26 +14,20 @@
 
         <ImageView
             android:id="@+id/arrow_back"
-
+            style="@style/ArrowBack"
+            android:foreground="?attr/selectableItemBackground"
             android:layout_width="@dimen/ArrowBack"
             android:layout_height="@dimen/ArrowBack"
-            android:layout_marginEnd="12dp"
-            android:scaleType="center"
-            android:foreground="?attr/selectableItemBackground"
-            android:visibility="visible"
-            android:backgroundTint="@color/white"
-            style="@style/ArrowBack"/>
+            android:scaleType="center" />
 
         <TextView
+            style="@style/AppBar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/LayoutMargin"
-            android:fontFamily="@font/ys_display_medium"
             android:gravity="center_vertical"
-            android:paddingStart="12dp"
             android:text="@string/settings"
             android:textColor="@color/settings_text"
-            android:textSize="@dimen/textSize"
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
@@ -45,18 +38,18 @@
         android:orientation="vertical"
         android:paddingHorizontal="16dp">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/themeSwitcher"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/SettingsLayoutHeight"
-            android:fontFamily="@font/ys_display_regular"
-            android:text="@string/dark_theme"
-            android:textColor="@color/settings_text"
-            android:textSize="@dimen/SettingsTextSize"
-            android:thumbTint="@color/thumb_tint"
-            android:trackTint="@color/thumb_track_tint"
-            tools:ignore="UseSwitchCompatOrMaterialXml"
-            android:foreground="?attr/selectableItemBackground"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/themeSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/SettingsLayoutHeight"
+                android:fontFamily="@font/ys_display_regular"
+                android:text="@string/dark_theme"
+                android:textColor="@color/settings_text"
+                android:textSize="@dimen/SettingsTextSize"
+                android:thumbTint="@color/thumb_tint"
+                android:trackTint="@color/thumb_track_tint"
+                tools:ignore="UseSwitchCompatOrMaterialXml"
+                android:foreground="?attr/selectableItemBackground"/>
 
 
         <Button

@@ -7,4 +7,10 @@
     <dimen name="SettingsLayoutHeight">61dp</dimen>
     <dimen name="LayoutMargin">4dp</dimen>
     <dimen name="ArrowBack">48dp</dimen>
+    <dimen name="InputSearchMargin">16dp</dimen>
+    <dimen name="InputSearchPadding">12dp</dimen>
+    <dimen name="PaddingStart">@dimen/InputSearchPadding</dimen>
+
+    <dimen name="SearchEditTextSize">@dimen/SettingsTextSize</dimen>
+
 </resources>
