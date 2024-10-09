@@ -2,10 +2,12 @@
 <resources>
 
     <style name="Theme.MyApp.Light" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
         <!--<item name="colorPrimary">@color/main_background</item>-->
 
 
-    </style>
+
 
     <style name="ButtonMainStyle">
         <item name="android:layout_width">match_parent</item>
@@ -49,4 +51,5 @@
         <item name="android:paddingStart">@dimen/PaddingStart</item>
         <item name="android:fontFamily">@font/ys_display_medium</item>
     </style>
+
 </resources>

@@ -58,7 +58,8 @@
             android:textColorHint="@color/Edit_text_color_hint"
             android:textCursorDrawable="@drawable/text_cursor"
             android:textFontWeight="400"
-            android:textSize="@dimen/SearchEditTextSize" />
+            android:textSize="@dimen/SearchEditTextSize"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageView
             android:id="@+id/clear_text_button"
