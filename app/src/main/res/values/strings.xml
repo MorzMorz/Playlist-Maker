@@ -9,5 +9,10 @@
     <string name="dark_theme">Темная тема</string>
     <string name="support">Написать в поддержку</string>
     <string name="user_agreement">Пользовательское соглашение</string>
+    <string name="share_text" translatable="false">https://practicum.yandex.ru/android-developer/</string>
+    <string name="email" translatable="false">ilja.iwantsov1998@yandex.ru</string>
+    <string name="subject">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="body">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="userAgreementUrl" translatable="false">https://yandex.ru/legal/practicum_offer/</string>
 
 </resources>

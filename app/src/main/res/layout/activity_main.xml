@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/main_backgroud"
+    android:orientation="vertical"
     android:paddingHorizontal="16dp">
 
 
@@ -15,75 +15,69 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:layout_marginStart="@dimen/LayoutMargin"
+            android:layout_marginTop="@dimen/LayoutMargin"
+            android:fontFamily="@font/ys_display_medium"
             android:gravity="center"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="4dp"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="@dimen/textSize"
+
+            />
 
     </FrameLayout>
 
 
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="33dp"
-    android:orientation="vertical">
-
-
-    <Button
-        android:id="@+id/button_search"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:backgroundTint="@color/white"
-        android:text="@string/search"
-        android:textSize="22sp"
-        android:textColor="@color/text"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="16dp"
-        app:icon="@drawable/search"
-        app:iconGravity="textStart"
-        app:iconTint="@color/main_color_icon"
-        android:foreground="?attr/selectableItemBackground"/>
-
-    <Button
-        android:id="@+id/button_mediateka"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:backgroundTint="@color/white"
-        android:text="@string/mediateka"
-        android:textSize="22sp"
-        android:textColor="@color/text"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="16dp"
-        app:icon="@drawable/mediateka"
-        app:iconGravity="textStart"
-        app:iconTint="@color/main_color_icon"
-        android:foreground="?attr/selectableItemBackground"/>
+        android:layout_marginTop="33dp"
+        android:orientation="vertical">
 
 
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width ="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight= "3"
+            android:layout_marginBottom = "16dp"
+            style="@style/ButtonMainStyle"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/search"
+            app:cornerRadius="@dimen/cornerRadius"
+            app:icon="@drawable/search"
+            app:iconGravity="textStart"
+            app:iconTint="@color/main_color_icon" />
 
-    <Button
-        android:id="@+id/button_settings"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="28dp"
-        android:layout_weight="3"
-        android:backgroundTint="@color/white"
-        android:text="@string/settings"
-        android:textSize="22sp"
-        android:textColor="@color/text"
-        app:cornerRadius="16dp"
-        app:icon="@drawable/settings"
-        app:iconGravity="textStart"
-        app:iconTint="@color/main_color_icon"
-        android:foreground="?attr/selectableItemBackground"/>
+        <Button
+            android:id="@+id/button_mediateka"
+            style="@style/ButtonMainStyle"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:layout_weight = "3"
+            android:layout_marginBottom = "16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/mediateka"
+            app:cornerRadius="@dimen/cornerRadius"
+            app:icon="@drawable/mediateka"
+            app:iconGravity="textStart"
+            app:iconTint="@color/main_color_icon" />
 
-</LinearLayout>
+
+        <Button
+            android:id="@+id/button_settings"
+            style="@style/ButtonMainStyle"
+            android:layout_width ="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight= "3"
+            android:layout_marginBottom = "16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/settings"
+            app:cornerRadius="@dimen/cornerRadius"
+            app:icon="@drawable/settings"
+            app:iconGravity="textStart"
+            app:iconTint="@color/main_color_icon" />
+
+    </LinearLayout>
 
 </LinearLayout>
