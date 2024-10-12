@@ -10,25 +10,18 @@
 
 
     <style name="ButtonMainStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">3</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:textColor">@color/text</item>
-        <item name="android:layout_marginBottom">16dp</item>
         <item name="android:letterSpacing">0.01</item>
         <item name="android:fontFamily">@font/ys_display_medium</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="ButtonSettingsStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/SettingsLayoutHeight</item>
         <item name="android:backgroundTint">@color/settings_backgroud</item>
         <item name="android:drawableTint">@color/setting_icon</item>
         <item name="android:forceDarkAllowed">false</item>
-        <item name="android:gravity">center_vertical</item>
         <item name="android:outlineAmbientShadowColor">@color/shadow</item>
         <item name="android:outlineSpotShadowColor">@color/shadow</item>
         <item name="android:shadowColor">@color/shadow</item>

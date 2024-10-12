@@ -30,7 +30,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
 
-    //@SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -40,10 +39,8 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
 
-        //val linearLayout = findViewById<LinearLayout>(R.id.input_container)
         val inputEditText = findViewById<EditText>(R.id.input_edit_text)
         val clearTextButton = findViewById<ImageView>(R.id.clear_text_button)
-        //val restoreEditText = findViewById<EditText>(R.id.input_edit_text)
 
         if (savedInstanceState != null) {
             inputEditTextValue = savedInstanceState.getString(EDIT_TEXT_VALUE, EDIT_TEXT_DEF)
@@ -58,16 +55,16 @@ class SearchActivity : AppCompatActivity() {
         }
 
         inputEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {
                 // empty
             }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                clearTextButton.visibility = clearButtonVisibility(s)
-
+            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
+                clearTextButton.visibility = clearButtonVisibility(charSequence)
+                inputEditTextValue = charSequence.toString()
             }
 
-            override fun afterTextChanged(s: Editable?) {
+            override fun afterTextChanged(editable: Editable?) {
                 //empty
             }
         })

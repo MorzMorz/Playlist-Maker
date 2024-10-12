@@ -31,10 +31,11 @@
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/input_container"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
+
         android:layout_marginStart="@dimen/InputSearchMargin"
         android:layout_marginEnd="@dimen/InputSearchMargin"
         android:background="@drawable/rounded_background_edit_text"
@@ -44,10 +45,9 @@
         <EditText
             android:id="@+id/input_edit_text"
             style="@style/EditTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:drawableStart="@drawable/search"
             android:drawablePadding="8dp"
             android:hint="@string/search"
@@ -59,17 +59,18 @@
             android:textCursorDrawable="@drawable/text_cursor"
             android:textFontWeight="400"
             android:textSize="@dimen/SearchEditTextSize"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            android:maxLength="30"/>
 
         <ImageView
             android:id="@+id/clear_text_button"
-            android:layout_width="40dp"
-            android:layout_height="36dp"
-            android:layout_gravity="end|center_vertical"
-            android:scaleType="center"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center"
             android:src="@drawable/button_close"
             android:visibility="gone" />
-    </LinearLayout>
+    </FrameLayout>
 
 
 </LinearLayout>
