@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="61dp"
+    >
+
+    
+    <ImageView
+        android:id="@+id/search_tracklist_albumArt"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+
+
+        />
+    
+    <TextView
+        android:id="@+id/search_tracklist_songName"
+        style="@style/SearchTitle"
+        android:layout_width="250dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="28dp"
+        android:text="srastgdshgshdhjhgrdsehsdhdfhjsdjkhgszjodfhfj"
+        android:textSize="16sp"
+        android:textColor="@color/search_songName"
+
+        />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="34dp"
+        >
+
+        <TextView
+            android:id="@+id/search_tracklist_artistName"
+            style="@style/SearchTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="beatlheshtdhjdfjf"
+            android:textSize="11sp"
+            android:textColor="@color/search_artistName"
+            
+            />
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:src="@drawable/separator_point"
+            android:scaleType="center"
+            android:layout_gravity="center"
+            app:tint="@color/search_artistName"
+            />
+
+        <TextView
+            android:id="@+id/search_tracklist_songTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2:34"
+            android:layout_marginEnd="44dp"
+            android:fontFamily="@font/ys_display_regular"
+            android:textSize="11sp"
+            android:textColor="@color/search_artistName"
+
+            />
+
+
+    </LinearLayout>
+    
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/arrow_forward"
+        android:scaleType="center"
+        android:layout_gravity="end||center"
+        android:layout_marginEnd="12dp"
+        app:tint="@color/search_artistName"
+
+        />
+
+
+
+
+</FrameLayout>

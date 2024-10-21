@@ -14,5 +14,7 @@
     <color name="thumb_track_tint">#E6E8EB</color>
     <color name="thumb_tint">#AEAFB4</color>
     <color name="Edit_text_color_hint">@color/thumb_tint</color>
+    <color name="search_songName">@color/black</color>
+    <color name="search_artistName">@color/setting_icon</color>
 
 </resources>

@@ -37,6 +37,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="@dimen/InputSearchMargin"
         android:layout_marginEnd="@dimen/InputSearchMargin"
+        android:layout_marginBottom="@dimen/InputSearchMargin"
         android:background="@drawable/rounded_background_edit_text"
         android:orientation="horizontal">
 
@@ -69,6 +70,13 @@
             android:src="@drawable/button_close"
             android:visibility="gone" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/seacrh_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/search_tracklist" />
 
 
 </LinearLayout>
