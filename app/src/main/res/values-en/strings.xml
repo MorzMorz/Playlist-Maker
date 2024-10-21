@@ -10,4 +10,6 @@
     <string name="dark_theme">Dark theme</string>
     <string name="support">Write to support</string>
     <string name="user_agreement">User_agreement</string>
+    <string name="subject">Message to the developers and developers of the Playlist Maker application</string>
+    <string name="body">Thanks to the developers and developers for the cool application!</string>
 </resources>

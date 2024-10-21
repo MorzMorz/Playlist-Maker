@@ -1,16 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MediatekaActivity">
+    android:background="@color/settings_backgroud"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/message"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/LayoutMargin">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            style="@style/ArrowBack"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="@dimen/ArrowBack"
+            android:layout_height="@dimen/ArrowBack"
+            android:scaleType="center" />
+
+        <TextView
+            style="@style/AppBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/LayoutMargin"
+            android:gravity="center_vertical"
+            android:text="@string/search"
+            android:textColor="@color/search_text"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/input_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Пока нечего и негде искать, возращайтесь через несколько спринтов"/>
 
-</FrameLayout>
+        android:layout_marginStart="@dimen/InputSearchMargin"
+        android:layout_marginEnd="@dimen/InputSearchMargin"
+        android:background="@drawable/rounded_background_edit_text"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/input_edit_text"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/search"
+            android:drawablePadding="8dp"
+            android:hint="@string/search"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="@dimen/InputSearchPadding"
+            android:textColor="@color/black"
+            android:textColorHint="@color/Edit_text_color_hint"
+            android:textCursorDrawable="@drawable/text_cursor"
+            android:textFontWeight="400"
+            android:textSize="@dimen/SearchEditTextSize"
+            tools:ignore="TouchTargetSizeCheck"
+            android:maxLength="30"/>
+
+        <ImageView
+            android:id="@+id/clear_text_button"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center"
+            android:src="@drawable/button_close"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+</LinearLayout>
