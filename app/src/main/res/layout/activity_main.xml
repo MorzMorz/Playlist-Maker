@@ -37,6 +37,10 @@
 
         <Button
             android:id="@+id/button_search"
+            android:layout_width ="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight= "3"
+            android:layout_marginBottom = "16dp"
             style="@style/ButtonMainStyle"
             android:foreground="?attr/selectableItemBackground"
             android:text="@string/search"
@@ -48,6 +52,10 @@
         <Button
             android:id="@+id/button_mediateka"
             style="@style/ButtonMainStyle"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:layout_weight = "3"
+            android:layout_marginBottom = "16dp"
             android:foreground="?attr/selectableItemBackground"
             android:text="@string/mediateka"
             app:cornerRadius="@dimen/cornerRadius"
@@ -59,6 +67,10 @@
         <Button
             android:id="@+id/button_settings"
             style="@style/ButtonMainStyle"
+            android:layout_width ="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight= "3"
+            android:layout_marginBottom = "16dp"
             android:foreground="?attr/selectableItemBackground"
             android:text="@string/settings"
             app:cornerRadius="@dimen/cornerRadius"

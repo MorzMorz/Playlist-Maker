@@ -38,23 +38,26 @@
         android:orientation="vertical"
         android:paddingHorizontal="16dp">
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/themeSwitcher"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/SettingsLayoutHeight"
-                android:fontFamily="@font/ys_display_regular"
-                android:text="@string/dark_theme"
-                android:textColor="@color/settings_text"
-                android:textSize="@dimen/SettingsTextSize"
-                android:thumbTint="@color/thumb_tint"
-                android:trackTint="@color/thumb_track_tint"
-                tools:ignore="UseSwitchCompatOrMaterialXml"
-                android:foreground="?attr/selectableItemBackground"/>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/themeSwitcher"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/SettingsLayoutHeight"
+            android:fontFamily="@font/ys_display_regular"
+            android:text="@string/dark_theme"
+            android:textColor="@color/settings_text"
+            android:textSize="@dimen/SettingsTextSize"
+            android:thumbTint="@color/thumb_tint"
+            android:trackTint="@color/thumb_track_tint"
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:foreground="?attr/selectableItemBackground"/>
 
 
         <Button
             android:id="@+id/button_share"
             style="@style/ButtonSettingsStyle"
+            android:layout_width = "match_parent"
+            android:layout_height = "@dimen/SettingsLayoutHeight"
+            android:gravity = "center_vertical"
             android:drawableEnd="@drawable/share"
             android:text="@string/share_app"
             android:foreground="?attr/selectableItemBackground"/>
@@ -62,6 +65,9 @@
         <Button
             android:id="@+id/button_support"
             style="@style/ButtonSettingsStyle"
+            android:layout_width = "match_parent"
+            android:layout_height = "@dimen/SettingsLayoutHeight"
+            android:gravity = "center_vertical"
             android:drawableEnd="@drawable/support"
             android:text="@string/support"
             android:foreground="?attr/selectableItemBackground"/>
@@ -69,6 +75,9 @@
         <Button
             android:id="@+id/button_userAgreement"
             style="@style/ButtonSettingsStyle"
+            android:layout_width = "match_parent"
+            android:layout_height = "@dimen/SettingsLayoutHeight"
+            android:gravity = "center_vertical"
             android:drawableEnd="@drawable/user_agreement"
             android:text="@string/user_agreement"
             android:foreground="?attr/selectableItemBackground"/>

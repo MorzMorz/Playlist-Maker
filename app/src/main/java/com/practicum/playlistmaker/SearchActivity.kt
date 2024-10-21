@@ -1,9 +1,12 @@
 package com.practicum.playlistmaker
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -14,6 +17,20 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class SearchActivity : AppCompatActivity() {
+
+    private var inputEditTextValue: String = EDIT_TEXT_DEF
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(EDIT_TEXT_VALUE, inputEditTextValue)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        inputEditTextValue = savedInstanceState.getString(EDIT_TEXT_VALUE, EDIT_TEXT_DEF)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -23,26 +40,33 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
 
-        //val linearLayout = findViewById<LinearLayout>(R.id.input_container)
         val inputEditText = findViewById<EditText>(R.id.input_edit_text)
         val clearTextButton = findViewById<ImageView>(R.id.clear_text_button)
 
+        if (savedInstanceState != null) {
+            inputEditTextValue = savedInstanceState.getString(EDIT_TEXT_VALUE, EDIT_TEXT_DEF)
+
+        }
+        inputEditText.setText(inputEditTextValue)
+
+
         clearTextButton.setOnClickListener {
             inputEditText.setText("")
+            hideKeyboard(it)
         }
 
         inputEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {
                 // empty
             }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                clearTextButton.visibility = clearButtonVisibility(s)
-
+            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
+                clearTextButton.visibility = clearButtonVisibility(charSequence)
+                inputEditTextValue = charSequence.toString()
             }
 
-            override fun afterTextChanged(s: Editable?) {
-                // empty
+            override fun afterTextChanged(editable: Editable?) {
+                //empty
             }
         })
     }
@@ -97,9 +121,15 @@ class SearchActivity : AppCompatActivity() {
             View.VISIBLE
         }
     }
+
+
+    private fun hideKeyboard(view: View) {
+        val softKeyboard = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        softKeyboard.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    companion object {
+        const val EDIT_TEXT_VALUE = "EDIT_TEXT_VALUE"
+        const val EDIT_TEXT_DEF = ""
+    }
 }
-
-
-
-
-
