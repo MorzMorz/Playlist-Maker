@@ -56,11 +56,21 @@ class SearchActivity : AppCompatActivity() {
         }
 
         inputEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {
+            override fun beforeTextChanged(
+                charSequence: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
                 // empty
             }
 
-            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
+            override fun onTextChanged(
+                charSequence: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
                 clearTextButton.visibility = clearButtonVisibility(charSequence)
                 inputEditTextValue = charSequence.toString()
             }
@@ -69,9 +79,13 @@ class SearchActivity : AppCompatActivity() {
                 //empty
             }
         })
-    }
 
-    val recyclerView = findViewById<RecyclerView>(R.id.seacrh_recyclerView)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.seacrh_recyclerView)
+        val trackAdapter = TrackAdapter(tracklist)
+        recyclerView.adapter = trackAdapter
+
+    }
 
     val tracklist = listOf(
 
@@ -107,11 +121,11 @@ class SearchActivity : AppCompatActivity() {
             trackName = "Sweet Child O'Mine",
             artistName = "Guns N' Roses",
             trackTime = "5:03",
-            artworkUrl100 = "https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/a0/4d/c4/a04dc484-03cc-02aa-fa82-5334fcb4bc16/18UMGIM24878.rgb.jpg/100x100bb.jpg "
+            artworkUrl100 = "https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/a0/4d/c4/a04dc484-03cc-02aa-fa82-5334fcb4bc16/18UMGIM24878.rgb.jpg/100x100bb.jpg"
+        ),
+
+
         )
-
-
-    )
 
 
     fun clearButtonVisibility(s: CharSequence?): Int {
