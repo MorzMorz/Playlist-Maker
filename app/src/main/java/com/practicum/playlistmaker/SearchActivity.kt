@@ -35,8 +35,8 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        val buttonBack = findViewById<View>(R.id.arrow_back)
-        buttonBack.setOnClickListener {
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        toolbar.setNavigationOnClickListener {
             finish()
         }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="61dp">
 
@@ -12,7 +13,7 @@
         android:layout_marginTop="@dimen/AlbumArtMargin"
         android:layout_marginEnd="@dimen/AlbumArtMargin"
         android:layout_marginBottom="@dimen/AlbumArtMargin"
-        android:src="@drawable/baseline_photo_24" />
+        android:src="@drawable/baseline_gesture_24" />
 
     <TextView
         android:id="@+id/search_tracklist_songName"
@@ -23,7 +24,8 @@
         android:layout_marginTop="14dp"
         android:layout_marginBottom="28dp"
         android:textColor="@color/search_songName"
-        android:textSize="@dimen/SongNameSize" />
+        android:textSize="@dimen/SongNameSize"
+        tools:text="text" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -38,7 +40,8 @@
             style="@style/SearchTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/search_artistName" />
+            android:textColor="@color/search_artistName"
+            tools:text="text" />
 
         <ImageView
             android:layout_width="@dimen/SeparatorPointWidthHeight"
@@ -55,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/SongArtistNameMarginEnd"
             android:fontFamily="@font/ys_display_regular"
-            android:textColor="@color/search_artistName" />
+            android:textColor="@color/search_artistName"
+            tools:text="text" />
 
     </LinearLayout>
 

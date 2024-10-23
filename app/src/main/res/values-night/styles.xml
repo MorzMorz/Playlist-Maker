@@ -43,8 +43,9 @@
 
     <style name="AppBar">
         <item name="android:textSize">@dimen/textSize</item>
-        <item name="android:paddingStart">@dimen/PaddingStart</item>
+
         <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textColor">@color/settings_text</item>
     </style>
 
     <style name="SearchTitle">

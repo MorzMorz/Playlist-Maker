@@ -10,6 +10,8 @@
     <dimen name="InputSearchMargin">16dp</dimen>
     <dimen name="InputSearchPadding">12dp</dimen>
     <dimen name="PaddingStart">@dimen/InputSearchPadding</dimen>
+    <dimen name="InputEditTextMarginBot">@dimen/ArrowForwardWidthHeigh</dimen>
+    <dimen name="SettingTitleMarginBot">@dimen/InputEditTextMarginBot</dimen>
 
     <dimen name="SearchEditTextSize">@dimen/SettingsTextSize</dimen>
     <dimen name="SongNameSize">@dimen/SettingsTextSize</dimen>
