@@ -10,7 +10,19 @@
     <dimen name="InputSearchMargin">16dp</dimen>
     <dimen name="InputSearchPadding">12dp</dimen>
     <dimen name="PaddingStart">@dimen/InputSearchPadding</dimen>
+    <dimen name="InputEditTextMarginBot">@dimen/ArrowForwardWidthHeigh</dimen>
+    <dimen name="SettingTitleMarginBot">@dimen/InputEditTextMarginBot</dimen>
 
     <dimen name="SearchEditTextSize">@dimen/SettingsTextSize</dimen>
+    <dimen name="SongNameSize">@dimen/SettingsTextSize</dimen>
+    <dimen name="ArtistNameSize">11sp</dimen>
+    <dimen name="AlbumArtMargin">8dp</dimen>
+    <dimen name="AlbumArtWidthHeight">45dp</dimen>
+    <dimen name="SongArtistNameMarginStart">66dp</dimen>
+    <dimen name="SongArtistNameMarginEnd">44dp</dimen>
+    <dimen name="SeparatorPointWidthHeight">13dp</dimen>
+    <dimen name="ArrowForwardWidthHeigh">24dp</dimen>
+
+
 
 </resources>
