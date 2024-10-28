@@ -32,17 +32,14 @@
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/themeSwitcher"
-            style="SettingsSwitch"
             android:layout_width="match_parent"
             android:layout_height="@dimen/SettingsLayoutHeight"
             android:fontFamily="@font/ys_display_regular"
-            android:foreground="?attr/selectableItemBackground"
             android:text="@string/dark_theme"
             android:textColor="@color/settings_text"
             android:textSize="@dimen/SettingsTextSize"
-            app:thumbTint="@color/thumb_tint"
-            app:trackTint="@color/thumb_track_tint"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
+            app:thumbTint="@color/switch_thumb_color"
+            app:trackTint="@color/switch_track_color" />
 
 
         <Button
