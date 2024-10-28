@@ -13,6 +13,8 @@
     <color name="shadow">#00FFFFFF</color>
     <color name="thumb_track_tint_inactive">#E6E8EB</color>
     <color name="thumb_tint_inactive">#AEAFB4</color>
+    <color name="thumb_track_tint_active">#9FBBF3</color>
+    <color name="thumb_tint_active">#3772E7</color>
     <color name="Edit_text_color_hint">@color/thumb_tint_inactive</color>
     <color name="search_songName">@color/black</color>
     <color name="search_artistName">@color/setting_icon</color>
