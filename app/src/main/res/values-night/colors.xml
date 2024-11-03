@@ -8,7 +8,9 @@
     <color name="setting_icon">@color/white</color>
     <color name="settings_text">@color/white</color>
     <color name="search_text">@color/white</color>
-    <color name="thumb_track_tint">#9FBBF3</color>
-    <color name="thumb_tint">#3772E7</color>
+    <color name="thumb_track_tint_active">#9FBBF3</color>
+    <color name="thumb_tint_active">#3772E7</color>
     <color name="Edit_text_color_hint">@color/main_backgroud</color>
+    <color name="search_songName">@color/white</color>
+    <color name="search_artistName">@color/white</color>
 </resources>
