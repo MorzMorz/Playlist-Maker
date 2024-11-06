@@ -13,4 +13,6 @@
     <color name="Edit_text_color_hint">@color/main_backgroud</color>
     <color name="search_songName">@color/white</color>
     <color name="search_artistName">@color/white</color>
+    <color name="search_reload_button_text">@color/main_backgroud</color>
+    <color name="search_reload_button_background">@color/white</color>
 </resources>

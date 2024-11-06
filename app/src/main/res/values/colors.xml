@@ -18,5 +18,7 @@
     <color name="Edit_text_color_hint">@color/thumb_tint_inactive</color>
     <color name="search_songName">@color/black</color>
     <color name="search_artistName">@color/setting_icon</color>
+    <color name="search_reload_button_text">@color/white</color>
+    <color name="search_reload_button_background">@color/text</color>
 
 </resources>
