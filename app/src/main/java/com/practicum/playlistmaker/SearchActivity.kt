@@ -1,5 +1,6 @@
 package com.practicum.playlistmaker
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -161,6 +162,7 @@ class SearchActivity : AppCompatActivity() {
                 // empty
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             override fun onTextChanged(
                 charSequence: CharSequence?,
                 start: Int,
