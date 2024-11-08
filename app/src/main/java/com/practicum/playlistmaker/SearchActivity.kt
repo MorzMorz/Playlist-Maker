@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -133,10 +134,21 @@ class SearchActivity : AppCompatActivity() {
         clearTextButton.setOnClickListener {
             inputEditText.setText("")
             hideKeyboard(it)
+            errorText.visibility = View.GONE
+            errorIcon.visibility = View.GONE
+            searchSong.visibility = View.VISIBLE
         }
 
         errorReloadButton.setOnClickListener {
             searchSong(inputEditTextValue)
+        }
+
+        inputEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                searchSong(inputEditTextValue)
+                true
+            }
+            false
         }
 
         inputEditText.addTextChangedListener(object : TextWatcher {
@@ -158,18 +170,20 @@ class SearchActivity : AppCompatActivity() {
                 clearTextButton.visibility = clearButtonVisibility(charSequence)
                 inputEditTextValue = charSequence.toString()
 
-                if (inputEditTextValue.isNotEmpty()) {
-                    searchSong(inputEditTextValue)
+                if (inputEditTextValue.isEmpty()) {
+                    trackList.clear()
+                    trackAdapter.notifyDataSetChanged()
+                    errorText.visibility = View.GONE
+                    errorIcon.visibility = View.GONE
+                    searchSong.visibility = View.VISIBLE
+
                 }
             }
 
             override fun afterTextChanged(editable: Editable?) {
                 //empty
             }
-        }
-
-
-        )
+        })
 
         searchSong = findViewById<RecyclerView>(R.id.seacrh_recyclerView)
         searchSong.layoutManager = LinearLayoutManager(this@SearchActivity)
@@ -187,6 +201,7 @@ class SearchActivity : AppCompatActivity() {
             View.VISIBLE
         }
     }
+
 
     private fun hideKeyboard(view: View) {
         val softKeyboard = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
