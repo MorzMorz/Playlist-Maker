@@ -19,18 +19,9 @@ import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class SearchActivity : AppCompatActivity() {
-    private val ITunesBaseUrl = "https://itunes.apple.com"
-
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(ITunesBaseUrl)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    private val iTunesService = retrofit.create(ITunesSearchApi::class.java)
+    private val iTunesService = RetrofitClient.iTunesService
 
     private val trackList = ArrayList<Song>()
 
@@ -44,9 +35,8 @@ class SearchActivity : AppCompatActivity() {
     private var inputEditTextValue: String = EDIT_TEXT_DEF
 
     fun searchSong(text: String) {
-        val nothingFound = "Ничего не нашлось"
-        val serverErrorSearch =
-            "Проблемы со связью\\n\\nЗагрузка не удалась. Проверьте подключение к интернету"
+        val nothingFound = getString(R.string.NothingFound)
+        val serverErrorSearch = getString((R.string.ConnectProblemNothingFound))
 
         iTunesService.search(text)
             .enqueue(object : Callback<SongResponse> {
@@ -147,7 +137,7 @@ class SearchActivity : AppCompatActivity() {
         inputEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 searchSong(inputEditTextValue)
-                true
+
             }
             false
         }
