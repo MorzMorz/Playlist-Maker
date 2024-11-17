@@ -12,4 +12,7 @@
     <string name="user_agreement">User_agreement</string>
     <string name="subject">Message to the developers and developers of the Playlist Maker application</string>
     <string name="body">Thanks to the developers and developers for the cool application!</string>
+    <string name="update">Update</string>
+    <string name="ConnectProblemNothingFound">Connection problems\n\nNothing found</string>
+    <string name="NothingFound">Nothing found</string>
 </resources>

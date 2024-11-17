@@ -32,7 +32,8 @@
         android:layout_marginEnd="@dimen/InputSearchMargin"
         android:layout_marginBottom="@dimen/InputEditTextMarginBot"
         android:background="@drawable/rounded_background_edit_text"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
 
 
         <EditText
@@ -53,6 +54,8 @@
             android:textCursorDrawable="@drawable/text_cursor"
             android:textFontWeight="400"
             android:textSize="@dimen/SearchEditTextSize"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             tools:ignore="TouchTargetSizeCheck" />
 
         <ImageView
@@ -72,5 +75,44 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/search_tracklist" />
 
+    <ImageView
+        android:id="@+id/searchErrorIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="102dp"
+        android:src="@drawable/server_error" />
+
+    <TextView
+        android:id="@+id/searchErrorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/SearchErrorTextMarginTop"
+        android:layout_marginStart="@dimen/SearchErrorTextMarginHorizontal"
+        android:layout_marginEnd="@dimen/SearchErrorTextMarginHorizontal"
+        android:fontFamily="@font/ys_display_medium"
+        android:textSize="@dimen/SearchErrorTextSize"
+        android:textFontWeight="400"
+        android:textColor="@color/search_text"
+        tools:text="@string/ConnectProblemNothingFound"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/searchErrorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/SearchErrorButtonMarginTop"
+        android:paddingTop="@dimen/SearchErrorButtonPaddingVertical"
+        android:paddingStart="@dimen/SearchErrorButtonPaddingHorizontal"
+        android:paddingEnd="@dimen/SearchErrorButtonPaddingHorizontal"
+        android:paddingBottom="@dimen/SearchErrorButtonPaddingVertical"
+        android:backgroundTint="@color/search_reload_button_background"
+        android:textColor="@color/search_reload_button_text"
+        android:text="@string/update"
+        android:fontFamily="@font/ys_display_medium"
+        android:textSize="@dimen/SearchErrorButtonTextSize"
+        app:cornerRadius="54dp"
+        />
 
 </LinearLayout>

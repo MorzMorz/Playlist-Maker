@@ -22,7 +22,12 @@
     <dimen name="SongArtistNameMarginEnd">44dp</dimen>
     <dimen name="SeparatorPointWidthHeight">13dp</dimen>
     <dimen name="ArrowForwardWidthHeigh">24dp</dimen>
-
-
+    <dimen name="SearchErrorButtonTextSize">14sp</dimen>
+    <dimen name="SearchErrorButtonPaddingHorizontal">14dp</dimen>
+    <dimen name="SearchErrorButtonPaddingVertical">10dp</dimen>
+    <dimen name="SearchErrorButtonMarginTop">24dp</dimen>
+    <dimen name="SearchErrorTextSize">19sp</dimen>
+    <dimen name="SearchErrorTextMarginHorizontal">24dp</dimen>
+    <dimen name="SearchErrorTextMarginTop">16dp</dimen>
 
 </resources>
