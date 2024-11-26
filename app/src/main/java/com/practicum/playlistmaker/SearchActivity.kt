@@ -185,7 +185,7 @@ class SearchActivity : AppCompatActivity() {
             hideKeyboard(it)
             errorText.visibility = View.GONE
             errorIcon.visibility = View.GONE
-            searchSong.visibility = View.VISIBLE
+            searchSong.visibility = View.GONE
 
         }
 
@@ -229,7 +229,7 @@ class SearchActivity : AppCompatActivity() {
                     errorText.visibility = View.GONE
                     errorIcon.visibility = View.GONE
                     searchSong.visibility = View.GONE
-                    searchHistoryRV.visibility = View.GONE
+                    searchHistoryRV.visibility = View.VISIBLE
 
 
                     //показать историю поиска
