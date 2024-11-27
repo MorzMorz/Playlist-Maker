@@ -144,6 +144,7 @@ class SearchActivity : AppCompatActivity() {
             if(historySongs.isEmpty()){
                 searchHistoryRV.visibility = View.GONE
                 searchSong.visibility = View.VISIBLE
+                historyView.visibility = View.GONE
 
             } else {
                 searchHistoryRV.visibility = View.VISIBLE
@@ -163,6 +164,10 @@ class SearchActivity : AppCompatActivity() {
 
         val inputEditText = findViewById<EditText>(R.id.input_edit_text)
         val clearTextButton = findViewById<ImageView>(R.id.clear_text_button)
+
+        inputEditText.setOnFocusChangeListener { view, hasFocus ->
+            historyView.visibility = if (hasFocus && inputEditText.text.isEmpty()) View.VISIBLE else View.GONE
+        }
 
         if (savedInstanceState != null) {
             inputEditTextValue = savedInstanceState.getString(EDIT_TEXT_VALUE, EDIT_TEXT_DEF)
@@ -243,6 +248,8 @@ class SearchActivity : AppCompatActivity() {
                 } else {
                     historyView.visibility = View.GONE
                 }
+
+                historyView.visibility = if (inputEditText.hasFocus() && charSequence?.isEmpty() == true) View.VISIBLE else View.GONE
             }
 
             override fun afterTextChanged(editable: Editable?) {
