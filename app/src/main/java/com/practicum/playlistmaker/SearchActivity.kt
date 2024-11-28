@@ -137,18 +137,34 @@ class SearchActivity : AppCompatActivity() {
         }
         searchHistoryRV.adapter = trackHistoryAdapter
 
+        val inputEditText = findViewById<EditText>(R.id.input_edit_text)
+        val historySongs = searchHistory.getHistorySong()
+        inputEditText.setOnFocusChangeListener { view, hasFocus ->
+            historyView.visibility  = if (hasFocus && inputEditText.text.isEmpty() && historySongs.isNotEmpty()) View.VISIBLE else View.GONE
+            if (hasFocus && inputEditText.text.isEmpty() && historySongs.isNotEmpty()) {
+                searchHistoryRV.visibility = View.VISIBLE
+                trackAdapter.updateData(historySongs)
+            }else {
+                searchHistoryRV.visibility = View.GONE
+            }
+
+        }
+
+
         fun loadHistory(){
             val historySongs = searchHistory.getHistorySong()
+            val inputEditText = findViewById<EditText>(R.id.input_edit_text)
             Log.d("History", "Загруженные песни: $historySongs")
 
-            if(historySongs.isEmpty()){
+            if(historySongs.isEmpty() && inputEditText.hasFocus()){
                 searchHistoryRV.visibility = View.GONE
                 searchSong.visibility = View.VISIBLE
                 historyView.visibility = View.GONE
 
-            } else {
+            } else if (inputEditText.hasFocus()){
                 searchHistoryRV.visibility = View.VISIBLE
                 searchSong.visibility = View.GONE
+                historyView.visibility = View.VISIBLE
                 trackHistoryAdapter.updateData(historySongs)
                 Log.d("History", "Загрузкааа успешна - $historySongs")
             }
@@ -162,12 +178,9 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
 
-        val inputEditText = findViewById<EditText>(R.id.input_edit_text)
+
         val clearTextButton = findViewById<ImageView>(R.id.clear_text_button)
 
-        inputEditText.setOnFocusChangeListener { view, hasFocus ->
-            historyView.visibility = if (hasFocus && inputEditText.text.isEmpty()) View.VISIBLE else View.GONE
-        }
 
         if (savedInstanceState != null) {
             inputEditTextValue = savedInstanceState.getString(EDIT_TEXT_VALUE, EDIT_TEXT_DEF)
@@ -237,9 +250,10 @@ class SearchActivity : AppCompatActivity() {
                     searchHistoryRV.visibility = View.VISIBLE
 
 
+
                     //показать историю поиска
                     val historySongs = searchHistory.getHistorySong()
-                    if (historySongs.isNotEmpty()){
+                    if (historySongs.isNotEmpty() && inputEditText.hasFocus()){
                         historyView.visibility = View.VISIBLE
                         trackAdapter.updateData(historySongs)
                     } else {
@@ -249,7 +263,7 @@ class SearchActivity : AppCompatActivity() {
                     historyView.visibility = View.GONE
                 }
 
-                historyView.visibility = if (inputEditText.hasFocus() && charSequence?.isEmpty() == true) View.VISIBLE else View.GONE
+
             }
 
             override fun afterTextChanged(editable: Editable?) {
