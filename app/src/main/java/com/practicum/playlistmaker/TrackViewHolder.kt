@@ -19,11 +19,9 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
 
-    fun bind(model: Song, onSongClick: (Song) -> Unit) {
+    fun bind(model: Song) {
 
-        itemView.setOnClickListener {
-            onSongClick(model)
-        }
+
         itemSongName.text = model.trackName
         itemArtistName.text = model.artistName
         itemSongTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(293000L)

@@ -21,7 +21,8 @@ class TrackAdapter(
     }
 
     override fun onBindViewHolder(holder: TrackViewHolder, position: Int) {
-        holder.bind(trackListResult[position], onSongClick)
+        holder.bind(trackListResult[position])
+        holder.itemView.setOnClickListener {onSongClick(trackListResult[position])}
     }
 
     @SuppressLint("NotifyDataSetChanged")
