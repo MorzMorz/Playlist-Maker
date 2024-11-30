@@ -2,15 +2,18 @@ package com.practicum.playlistmaker
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,24 +25,26 @@ import retrofit2.Response
 
 class SearchActivity : AppCompatActivity() {
     private val iTunesService = RetrofitClient.iTunesService
-
     private val trackList = ArrayList<Song>()
-
+    lateinit var trackHistoryAdapter: TrackAdapter
     lateinit var trackAdapter: TrackAdapter
-
     lateinit var searchSong: RecyclerView
+    lateinit var searchHistoryRV: RecyclerView
     lateinit var errorIcon: ImageView
     lateinit var errorText: TextView
     lateinit var errorReloadButton: Button
-
     private var inputEditTextValue: String = EDIT_TEXT_DEF
+
 
     fun searchSong(text: String) {
         val nothingFound = getString(R.string.NothingFound)
         val serverErrorSearch = getString((R.string.ConnectProblemNothingFound))
 
+
+
         iTunesService.search(text)
             .enqueue(object : Callback<SongResponse> {
+                @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(
                     call: Call<SongResponse>,
                     response: Response<SongResponse>
@@ -99,21 +104,83 @@ class SearchActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
+
         errorIcon = findViewById<ImageView>(R.id.searchErrorIcon)
         errorText = findViewById<TextView>(R.id.searchErrorText)
         errorReloadButton = findViewById<Button>(R.id.searchErrorButton)
+
+        val historyView = findViewById<LinearLayout>(R.id.searchHistoryView)
+        val historyClearButton = findViewById<Button>(R.id.clearHistoryButton)
+
+        val sharedPrefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
+        val searchHistory = SearchHistory(sharedPrefs)
+
+        searchHistoryRV = findViewById<RecyclerView>(R.id.searchHistory_recyclerView)
+        searchHistoryRV.layoutManager = LinearLayoutManager(this)
+
+        searchSong = findViewById(R.id.searсh_recyclerView)
+        searchSong.layoutManager = LinearLayoutManager(this)
+
+        trackAdapter = TrackAdapter(trackList){
+                song -> searchHistory.addSong(song)
+        }
+        searchSong.adapter = trackAdapter
+
+
+        trackHistoryAdapter = TrackAdapter(trackList){
+                song -> searchHistory.addSong(song)
+        }
+        searchHistoryRV.adapter = trackHistoryAdapter
+
+        val inputEditText = findViewById<EditText>(R.id.input_edit_text)
+        val historySongs = searchHistory.getHistorySong()
+        inputEditText.setOnFocusChangeListener { view, hasFocus ->
+            historyView.visibility  = if (hasFocus && inputEditText.text.isEmpty() && historySongs.isNotEmpty()) View.VISIBLE else View.GONE
+            if (hasFocus && inputEditText.text.isEmpty() && historySongs.isNotEmpty()) {
+                searchHistoryRV.visibility = View.VISIBLE
+                trackAdapter.updateData(historySongs)
+            }else {
+                searchHistoryRV.visibility = View.GONE
+            }
+
+        }
+
+
+        fun loadHistory(){
+            val historySongs = searchHistory.getHistorySong()
+            val inputEditText = findViewById<EditText>(R.id.input_edit_text)
+            Log.d("History", "Загруженные песни: $historySongs")
+
+            if(historySongs.isEmpty() && inputEditText.hasFocus()){
+                searchHistoryRV.visibility = View.GONE
+                searchSong.visibility = View.VISIBLE
+                historyView.visibility = View.GONE
+
+            } else if (inputEditText.hasFocus()){
+                searchHistoryRV.visibility = View.VISIBLE
+                searchSong.visibility = View.GONE
+                historyView.visibility = View.VISIBLE
+                trackHistoryAdapter.updateData(historySongs)
+                Log.d("History", "Загрузкааа успешна - $historySongs")
+            }
+
+        }
+        loadHistory()
+
 
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         toolbar.setNavigationOnClickListener {
             finish()
         }
 
-        val inputEditText = findViewById<EditText>(R.id.input_edit_text)
+
         val clearTextButton = findViewById<ImageView>(R.id.clear_text_button)
+
 
         if (savedInstanceState != null) {
             inputEditTextValue = savedInstanceState.getString(EDIT_TEXT_VALUE, EDIT_TEXT_DEF)
@@ -122,12 +189,22 @@ class SearchActivity : AppCompatActivity() {
         inputEditText.setText(inputEditTextValue)
 
 
+            historyClearButton.setOnClickListener {
+                historyView.visibility = View.GONE
+                searchHistory.clearHistory()
+                loadHistory()
+                trackHistoryAdapter.updateData(emptyList())
+            }
+
+
+
         clearTextButton.setOnClickListener {
             inputEditText.setText("")
             hideKeyboard(it)
             errorText.visibility = View.GONE
             errorIcon.visibility = View.GONE
-            searchSong.visibility = View.VISIBLE
+            searchSong.visibility = View.GONE
+
         }
 
         errorReloadButton.setOnClickListener {
@@ -149,7 +226,7 @@ class SearchActivity : AppCompatActivity() {
                 count: Int,
                 after: Int
             ) {
-                // empty
+                //empty
             }
 
             @SuppressLint("NotifyDataSetChanged")
@@ -163,26 +240,36 @@ class SearchActivity : AppCompatActivity() {
                 inputEditTextValue = charSequence.toString()
 
                 if (inputEditTextValue.isEmpty()) {
+                    loadHistory()
                     trackList.clear()
                     trackAdapter.notifyDataSetChanged()
+                    trackHistoryAdapter.notifyDataSetChanged()
                     errorText.visibility = View.GONE
                     errorIcon.visibility = View.GONE
-                    searchSong.visibility = View.VISIBLE
+                    searchSong.visibility = View.GONE
+                    searchHistoryRV.visibility = View.VISIBLE
 
+
+
+                    //показать историю поиска
+                    val historySongs = searchHistory.getHistorySong()
+                    if (historySongs.isNotEmpty() && inputEditText.hasFocus()){
+                        historyView.visibility = View.VISIBLE
+                        trackAdapter.updateData(historySongs)
+                    } else {
+                        historyView.visibility = View.GONE
+                    }
+                } else {
+                    historyView.visibility = View.GONE
                 }
+
+
             }
 
             override fun afterTextChanged(editable: Editable?) {
                 //empty
             }
         })
-
-        searchSong = findViewById<RecyclerView>(R.id.seacrh_recyclerView)
-        searchSong.layoutManager = LinearLayoutManager(this@SearchActivity)
-
-        trackAdapter = TrackAdapter(trackList)
-        searchSong.adapter = trackAdapter
-
     }
 
 

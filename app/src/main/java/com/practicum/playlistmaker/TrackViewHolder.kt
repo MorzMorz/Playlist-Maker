@@ -18,7 +18,10 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val itemSongTime: TextView = itemView.findViewById(R.id.search_tracklist_songTime)
 
 
+
     fun bind(model: Song) {
+
+
         itemSongName.text = model.trackName
         itemArtistName.text = model.artistName
         itemSongTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(293000L)

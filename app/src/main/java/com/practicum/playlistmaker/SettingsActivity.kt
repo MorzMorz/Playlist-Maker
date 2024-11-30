@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Switch
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -19,6 +20,23 @@ class SettingsActivity : AppCompatActivity() {
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         toolbar.setNavigationOnClickListener {
             finish()
+        }
+
+        val themeSwitcher = findViewById<SwitchMaterial>(R.id.themeSwitcher)
+
+        val sharedPrefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
+        val darkTheme = sharedPrefs.getBoolean(DARK_THEME_KEY, false)
+        themeSwitcher.isChecked = darkTheme
+
+        themeSwitcher.setOnCheckedChangeListener{switcher, checked ->
+
+            sharedPrefs.edit()
+                .putBoolean(DARK_THEME_KEY, checked)
+                .apply()
+
+            (application as App).switchTheme(checked)
+
+
         }
 
 
