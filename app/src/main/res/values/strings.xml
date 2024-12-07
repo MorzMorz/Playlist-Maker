@@ -17,4 +17,9 @@
     <string name="update">Обновить</string>
     <string name="ConnectProblemNothingFound">Проблемы со связью\n\nЗагрузка не удалась. Проверьте подключение к интернету</string>
     <string name="NothingFound">Ничего не найдено</string>
+    <string name="Duration">Длительность</string>
+    <string name="Album">Альбом</string>
+    <string name="ReleaseYear">Год</string>
+    <string name="SongGanre">Жанр</string>
+    <string name="SongCountry">Страна</string>
 </resources>
