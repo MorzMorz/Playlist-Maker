@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/audioplayer_background">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -145,6 +146,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/songTime"
         android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="1"
 
         />
 
@@ -169,6 +171,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/durationSongValue"
         android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="1"
 
         />
 
@@ -177,7 +180,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         style="@style/SongInfoTitleAudioPlayer"
-        tools:text="@string/ReleaseYear"
+        android:text="@string/ReleaseYear"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/albumSong"
         android:layout_marginStart="16dp"
@@ -193,6 +196,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/albumSongValue"
         android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="1"
 
         />
 
@@ -217,6 +221,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/songYearValue"
         android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="1"
 
         />
 
@@ -241,6 +246,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/songGanreValue"
         android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="1"
 
         />
 

@@ -2,6 +2,7 @@ package com.practicum.playlistmaker
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +36,9 @@ class SearchActivity : AppCompatActivity() {
     lateinit var errorText: TextView
     lateinit var errorReloadButton: Button
     private var inputEditTextValue: String = EDIT_TEXT_DEF
+
+
+
 
 
     fun searchSong(text: String) {
@@ -104,7 +109,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -128,12 +133,18 @@ class SearchActivity : AppCompatActivity() {
 
         trackAdapter = TrackAdapter(trackList){
                 song -> searchHistory.addSong(song)
+            val displayIntent = Intent(this, AudioplayerActivity::class.java)
+                displayIntent.putExtra(KEY_CHOSEN_TRACK, Gson().toJson(song))
+                startActivity(displayIntent)
         }
         searchSong.adapter = trackAdapter
 
 
         trackHistoryAdapter = TrackAdapter(trackList){
                 song -> searchHistory.addSong(song)
+            val displayIntent = Intent(this, AudioplayerActivity::class.java)
+            displayIntent.putExtra(KEY_CHOSEN_TRACK, Gson().toJson(song))
+            startActivity(displayIntent)
         }
         searchHistoryRV.adapter = trackHistoryAdapter
 

@@ -21,5 +21,6 @@
     <color name="search_reload_button_text">@color/white</color>
     <color name="search_reload_button_background">@color/text</color>
     <color name="audioplayer_text_color">@color/text</color>
+    <color name="audioplayer_background">@color/settings_backgroud</color>
 
 </resources>
