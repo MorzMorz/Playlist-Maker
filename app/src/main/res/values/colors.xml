@@ -20,5 +20,6 @@
     <color name="search_artistName">@color/setting_icon</color>
     <color name="search_reload_button_text">@color/white</color>
     <color name="search_reload_button_background">@color/text</color>
+    <color name="audioplayer_text_color">@color/text</color>
 
 </resources>

@@ -57,4 +57,18 @@
         <item name="android:ellipsize">end</item>
         <item name="android:textSize">@dimen/ArtistNameSize</item>
     </style>
+    <style name="SongInfoTitleAudioPlayer">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#AEAFB4</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:paddingVertical">8dp</item>
+    </style>
+    <style name="SongInfoValueAutioPlayer">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/audioplayer_text_color</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:paddingVertical">8dp</item>
+    </style>
 </resources>

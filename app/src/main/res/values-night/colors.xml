@@ -15,4 +15,5 @@
     <color name="search_artistName">@color/white</color>
     <color name="search_reload_button_text">@color/main_backgroud</color>
     <color name="search_reload_button_background">@color/white</color>
+    <color name="audioplayer_text_color">@color/white</color>
 </resources>

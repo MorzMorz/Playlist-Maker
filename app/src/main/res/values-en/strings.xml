@@ -15,4 +15,9 @@
     <string name="update">Update</string>
     <string name="ConnectProblemNothingFound">Connection problems\n\nNothing found</string>
     <string name="NothingFound">Nothing found</string>
+    <string name="Duration">Duration</string>
+    <string name="Album">Album</string>
+    <string name="ReleaseYear">Year</string>
+    <string name="SongGanre">Ganre</string>
+    <string name="SongCountry">Country</string>
 </resources>
