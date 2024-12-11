@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatDelegate
 
 const val SHARED_PREFS = "shared_prefs"
 const val DARK_THEME_KEY = "dark_theme_key"
+const val KEY_CHOSEN_TRACK = "chosen_track"
 
 class App: Application() {
 
@@ -30,4 +31,6 @@ class App: Application() {
             }
         )
     }
+
+
 }
