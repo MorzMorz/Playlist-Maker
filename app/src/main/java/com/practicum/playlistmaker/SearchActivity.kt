@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -24,6 +25,8 @@ import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.os.Handler
+import android.widget.ProgressBar
 
 class SearchActivity : AppCompatActivity() {
     private val iTunesService = RetrofitClient.iTunesService
@@ -36,6 +39,7 @@ class SearchActivity : AppCompatActivity() {
     lateinit var errorText: TextView
     lateinit var errorReloadButton: Button
     private var inputEditTextValue: String = EDIT_TEXT_DEF
+    lateinit var progressBar: ProgressBar
 
 
 
@@ -46,6 +50,7 @@ class SearchActivity : AppCompatActivity() {
         val serverErrorSearch = getString((R.string.ConnectProblemNothingFound))
 
 
+        progressBar.visibility = View.VISIBLE
 
         iTunesService.search(text)
             .enqueue(object : Callback<SongResponse> {
@@ -54,6 +59,7 @@ class SearchActivity : AppCompatActivity() {
                     call: Call<SongResponse>,
                     response: Response<SongResponse>
                 ) {
+                    progressBar.visibility = View.GONE
                     if (response.code() == 200) {
                         if (response.body()?.results.isNullOrEmpty()) { //ничего не найдено
                             searchSong.visibility = View.GONE
@@ -85,6 +91,7 @@ class SearchActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<SongResponse>, t: Throwable) {
+                    progressBar.visibility =View.GONE
                     searchSong.visibility = View.GONE
                     Glide.with(application).load(R.drawable.server_error).centerInside()
                         .into(errorIcon)
@@ -118,6 +125,7 @@ class SearchActivity : AppCompatActivity() {
         errorIcon = findViewById<ImageView>(R.id.searchErrorIcon)
         errorText = findViewById<TextView>(R.id.searchErrorText)
         errorReloadButton = findViewById<Button>(R.id.searchErrorButton)
+        progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
         val historyView = findViewById<LinearLayout>(R.id.searchHistoryView)
         val historyClearButton = findViewById<Button>(R.id.clearHistoryButton)
@@ -273,8 +281,7 @@ class SearchActivity : AppCompatActivity() {
                 } else {
                     historyView.visibility = View.GONE
                 }
-
-
+                searchDebounce()
             }
 
             override fun afterTextChanged(editable: Editable?) {
@@ -292,6 +299,17 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
+    private val searchRunnable = Runnable {
+        searchSong(inputEditTextValue)
+    }
+
+    private val handler = Handler(Looper.getMainLooper())
+
+    private fun searchDebounce(){
+        handler.removeCallbacks(searchRunnable)
+        handler.postDelayed(searchRunnable, SEARCH_DEBOUNCE_DELAY)
+    }
+
 
     private fun hideKeyboard(view: View) {
         val softKeyboard = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -301,6 +319,7 @@ class SearchActivity : AppCompatActivity() {
     companion object {
         const val EDIT_TEXT_VALUE = "EDIT_TEXT_VALUE"
         const val EDIT_TEXT_DEF = ""
+        private const val SEARCH_DEBOUNCE_DELAY = 2000L
     }
 
 }
