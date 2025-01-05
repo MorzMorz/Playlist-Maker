@@ -22,4 +22,5 @@
     <string name="ReleaseYear">Год</string>
     <string name="SongGanre">Жанр</string>
     <string name="SongCountry">Страна</string>
+    <string name="ZeroTiming" translatable="false">00:00</string>
 </resources>
