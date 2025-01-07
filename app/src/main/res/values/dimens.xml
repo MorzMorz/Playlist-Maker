@@ -29,5 +29,7 @@
     <dimen name="SearchErrorTextSize">19sp</dimen>
     <dimen name="SearchErrorTextMarginHorizontal">24dp</dimen>
     <dimen name="SearchErrorTextMarginTop">16dp</dimen>
+    <dimen name="ProgressBarSize">44dp</dimen>
+    <dimen name="ProgressBarMarginTop">124dp</dimen>
 
 </resources>

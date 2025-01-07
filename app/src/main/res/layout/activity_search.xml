@@ -65,6 +65,15 @@
                 android:visibility="gone" />
         </FrameLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/ProgressBarSize"
+        android:layout_height="@dimen/ProgressBarSize"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/ProgressBarMarginTop"
+        android:indeterminateTint="@color/progressBar_color"
+        android:visibility="gone"/>
+
     <LinearLayout
         android:id="@+id/searchHistoryView"
         android:layout_width="match_parent"

@@ -1,6 +1,8 @@
 package com.practicum.playlistmaker
 
 import android.annotation.SuppressLint
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +24,10 @@ class TrackAdapter(
 
     override fun onBindViewHolder(holder: TrackViewHolder, position: Int) {
         holder.bind(trackListResult[position])
-        holder.itemView.setOnClickListener {onSongClick(trackListResult[position])}
+        holder.itemView.setOnClickListener {
+            if (clickDebounce()){
+                onSongClick(trackListResult[position])}
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -30,6 +35,23 @@ class TrackAdapter(
         trackListResult.clear() // Очищаем текущий список
         trackListResult.addAll(newTracks) // Добавляем новые треки
         notifyDataSetChanged() // Уведомляем адаптер об изменениях
+    }
+
+    private var isClickAllowed = true
+
+    private val handler = Handler(Looper.getMainLooper())
+
+    private fun clickDebounce() : Boolean {
+        val current = isClickAllowed
+        if(isClickAllowed){
+            isClickAllowed = false
+            handler.postDelayed({isClickAllowed = true}, CLICK_DEBOUNCE_DELAY)
+        }
+        return current
+    }
+
+    companion object {
+        private const val CLICK_DEBOUNCE_DELAY = 1000L
     }
 
 }
