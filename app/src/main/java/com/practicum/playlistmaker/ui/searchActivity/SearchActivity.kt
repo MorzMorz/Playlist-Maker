@@ -1,9 +1,8 @@
-package com.practicum.playlistmaker
+package com.practicum.playlistmaker.ui.searchActivity
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Looper
 import android.text.Editable
@@ -27,6 +26,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.os.Handler
 import android.widget.ProgressBar
+import com.practicum.playlistmaker.AudioplayerActivity
+import com.practicum.playlistmaker.KEY_CHOSEN_TRACK
+import com.practicum.playlistmaker.R
+import com.practicum.playlistmaker.RetrofitClient
+import com.practicum.playlistmaker.SHARED_PREFS
+import com.practicum.playlistmaker.data.dto.DtoToSong
+import com.practicum.playlistmaker.data.dto.SongResponse
+import com.practicum.playlistmaker.domain.models.Song
 
 class SearchActivity : AppCompatActivity() {
     private val iTunesService = RetrofitClient.iTunesService
@@ -72,7 +79,7 @@ class SearchActivity : AppCompatActivity() {
                         } else { //что то найдено. надо показать
                             searchSong.visibility = View.VISIBLE
                             trackList.clear()
-                            trackList.addAll(response.body()?.results!!)
+                            trackList.addAll(DtoToSong(response.body()!!.results))
                             trackAdapter.notifyDataSetChanged()
                             errorIcon.visibility = View.GONE
                             errorText.visibility = View.GONE

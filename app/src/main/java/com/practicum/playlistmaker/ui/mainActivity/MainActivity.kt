@@ -1,18 +1,15 @@
-package com.practicum.playlistmaker
+package com.practicum.playlistmaker.ui.mainActivity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.res.Configuration
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.switchmaterial.SwitchMaterial
+import com.practicum.playlistmaker.R
+import com.practicum.playlistmaker.ui.mediatekaActivity.MediatekaActivity
+import com.practicum.playlistmaker.ui.searchActivity.SearchActivity
+import com.practicum.playlistmaker.ui.settingActivity.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 

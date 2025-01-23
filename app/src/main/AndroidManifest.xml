@@ -19,16 +19,16 @@
             android:name=".AudioplayerActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".ui.searchActivity.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".MediatekaActivity"
+            android:name=".ui.mediatekaActivity.MediatekaActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".ui.settingActivity.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.mainActivity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

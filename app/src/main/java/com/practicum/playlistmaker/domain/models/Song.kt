@@ -1,6 +1,6 @@
-package com.practicum.playlistmaker
+package com.practicum.playlistmaker.domain.models
 
-data class Song (
+data class Song(
     val trackId: Int,
     val trackName: String,
     val artistName: String,
