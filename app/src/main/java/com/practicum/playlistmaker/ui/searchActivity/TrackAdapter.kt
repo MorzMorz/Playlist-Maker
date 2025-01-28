@@ -1,4 +1,4 @@
-package com.practicum.playlistmaker
+package com.practicum.playlistmaker.ui.searchActivity
 
 import android.annotation.SuppressLint
 import android.os.Handler
@@ -6,6 +6,8 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.practicum.playlistmaker.R
+import com.practicum.playlistmaker.domain.models.Song
 
 class TrackAdapter(
     private var trackListResult: ArrayList<Song>,

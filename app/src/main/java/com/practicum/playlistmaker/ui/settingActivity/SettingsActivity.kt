@@ -1,14 +1,16 @@
-package com.practicum.playlistmaker
+package com.practicum.playlistmaker.ui.settingActivity
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Switch
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.switchmaterial.SwitchMaterial
+import com.practicum.playlistmaker.App
+import com.practicum.playlistmaker.DARK_THEME_KEY
+import com.practicum.playlistmaker.R
+import com.practicum.playlistmaker.SHARED_PREFS
 
 
 class SettingsActivity : AppCompatActivity() {
